@@ -1,35 +1,26 @@
 import React from 'react';
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-  TextStyle,
-} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {StyleSheet, Text, TextStyle} from 'react-native';
+
+import Container from '../components/Container';
+import Header from '../components/Header';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  } as ViewStyle,
-  text: {fontWeight: 'bold'} as TextStyle,
+  text: {fontSize: 16, padding: 16} as TextStyle,
 });
 
 export interface CreateScreenProps {
   navigation: StackNavigationProp<any>;
 }
 
-const CreateScreen: React.FC<CreateScreenProps> = ({navigation}) => (
-  <View style={styles.container}>
-    <Text style={styles.text}>Hello CreateScreen!</Text>
-    <Button
-      title="<- Go back to ListScreen"
-      onPress={() => navigation.goBack()}
-    />
-  </View>
-);
+const CreateScreen: React.FC<CreateScreenProps> = ({navigation}) => {
+  const buttonCallback = () => navigation.goBack();
+  return (
+    <Container>
+      <Header label="Create Measurement" buttonCallback={buttonCallback} />
+      <Text style={styles.text}>Hello CreateScreen!</Text>
+    </Container>
+  );
+};
 
 export default CreateScreen;
