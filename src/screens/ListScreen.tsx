@@ -7,8 +7,11 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-
 import {StackNavigationProp} from '@react-navigation/stack';
+
+import {useQuery} from '@apollo/client';
+import {GET_MEASUREMENTS} from '../graphql/queries';
+import {MeasurementType} from '../types';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,14 +26,26 @@ interface ListScreenProps {
   navigation: StackNavigationProp<any>;
 }
 
-const ListScreen: React.FC<ListScreenProps> = ({navigation}) => (
-  <View style={styles.container}>
-    <Text style={styles.text}>Hello ListScreen!</Text>
-    <Button
-      title="Go to CreateScreen ->"
-      onPress={() => navigation.navigate('Create Measurement')}
-    />
-  </View>
-);
+const ListScreen: React.FC<ListScreenProps> = ({navigation}) => {
+  const {loading, error, data} = useQuery(GET_MEASUREMENTS);
+  let content;
+
+  if (loading) content = <Text style={styles.text}>Loading...</Text>;
+  if (error) content = <Text style={styles.text}>{error}</Text>;
+  if (data)
+    content = data.measurements.map(({id}: MeasurementType) => (
+      <Text key={id}>{id}</Text>
+    ));
+
+  return (
+    <View style={styles.container}>
+      {content}
+      <Button
+        title="Go to CreateScreen ->"
+        onPress={() => navigation.navigate('Create Measurement')}
+      />
+    </View>
+  );
+};
 
 export default ListScreen;

@@ -7,7 +7,6 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-
 import {StackNavigationProp} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
