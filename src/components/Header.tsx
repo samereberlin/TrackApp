@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'stretch',
+    backgroundColor: '#f8fafa',
     borderBottomColor: '#f1f1f1',
     borderBottomWidth: 2,
   } as ViewStyle,

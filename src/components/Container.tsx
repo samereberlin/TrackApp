@@ -2,10 +2,7 @@ import React from 'react';
 import {StyleSheet, SafeAreaView, ViewStyle} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8fafa',
-  } as ViewStyle,
+  container: {flex: 1, backgroundColor: '#f5f7f7'} as ViewStyle,
 });
 
 const Container: React.FC = ({children}) => (
