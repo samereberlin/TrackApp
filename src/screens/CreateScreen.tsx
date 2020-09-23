@@ -7,6 +7,7 @@ import Container from '../components/Container';
 import {formatDateForm, formatWeightForm, isDateFormAvailable} from '../utils';
 import FormGroup from '../components/FormGroup';
 import Header from '../components/Header';
+import PicturePicker from '../components/PicturePicker';
 import {RootStackParamList} from '../types';
 
 const styles = StyleSheet.create({
@@ -87,6 +88,7 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
           placeholder="Your weight, kg"
           value={weight}
         />
+        <PicturePicker />
       </View>
     </Container>
   );

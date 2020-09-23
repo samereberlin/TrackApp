@@ -3,9 +3,10 @@ import {Platform, TextStyle, ViewStyle} from 'react-native';
 import {ColorsType} from '../types';
 
 const DEFAULT_TEXT_COLOR = '#333333';
+const DEFAULT_GREEN_COLOR = '#44b987';
 
 export const colors: ColorsType = {
-  buttonBackground: '#44b987',
+  buttonBackground: DEFAULT_GREEN_COLOR,
   containerBackground: '#f5f7f7',
   error: 'red',
   formBorder: '#d5dee0',
@@ -18,6 +19,7 @@ export const colors: ColorsType = {
   measurementDate: DEFAULT_TEXT_COLOR,
   measurementWeight: '#adc1c5',
   plusButtonIcon: 'white',
+  picturePicker: DEFAULT_GREEN_COLOR,
 };
 
 export const defaultButtonStyle: ViewStyle = {

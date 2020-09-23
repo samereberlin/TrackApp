@@ -12,6 +12,7 @@ export type ColorsType = {
   measurementDate: string;
   measurementWeight: string;
   plusButtonIcon: string;
+  picturePicker: string;
 };
 
 export type MeasurementType = {

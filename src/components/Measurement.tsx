@@ -15,12 +15,12 @@ import {MeasurementType} from '../types';
 
 const styles = StyleSheet.create({
   outerContainer: {
+    ...getSimpleShadowStyle(1),
     flexDirection: 'row',
     backgroundColor: colors.measurementBackground,
     margin: 8,
     padding: 12,
     borderRadius: 4,
-    ...getSimpleShadowStyle(1),
   } as ViewStyle,
   innerContainer: {flex: 4} as ViewStyle,
   date: {

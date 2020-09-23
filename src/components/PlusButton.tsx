@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   } as ViewStyle,
   button: {
+    ...defaultButtonStyle,
+    ...getSimpleShadowStyle(4),
     width: 60,
     height: 60,
     borderRadius: 60,
-    ...defaultButtonStyle,
-    ...getSimpleShadowStyle(4),
   } as ViewStyle,
   icon: {
     color: colors.plusButtonIcon,
