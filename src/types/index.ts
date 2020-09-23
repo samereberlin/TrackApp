@@ -2,6 +2,8 @@ export type ColorsType = {
   buttonBackground: string;
   containerBackground: string;
   error: string;
+  formBorder: string;
+  formLabel: string;
   header: string;
   headerBorder: string;
   headerIcon: string;
