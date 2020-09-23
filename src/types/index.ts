@@ -1,3 +1,17 @@
+export type ColorsType = {
+  buttonBackground: string;
+  containerBackground: string;
+  error: string;
+  header: string;
+  headerBorder: string;
+  headerIcon: string;
+  headerLabel: string;
+  measurementBackground: string;
+  measurementDate: string;
+  measurementWeight: string;
+  plusButtonIcon: string;
+};
+
 export type MeasurementType = {
   id: string;
   weight: number;
@@ -9,5 +23,5 @@ export type MeasurementType = {
 
 export type RootStackParamList = {
   ListScreen: undefined;
-  CreateScreen: {usedDates?: Array<number>};
+  CreateScreen: {usedDates?: number[]};
 };

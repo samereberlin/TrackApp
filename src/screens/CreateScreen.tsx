@@ -4,11 +4,12 @@ import {RouteProp} from '@react-navigation/native';
 import {StyleSheet, Text, TextStyle} from 'react-native';
 
 import Container from '../components/Container';
+import {defaultTextStyle} from '../theme';
 import Header from '../components/Header';
 import {RootStackParamList} from '../types';
 
 const styles = StyleSheet.create({
-  text: {fontSize: 16, padding: 16} as TextStyle,
+  text: {...defaultTextStyle} as TextStyle,
 });
 
 export interface CreateScreenProps {

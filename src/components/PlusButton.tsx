@@ -1,13 +1,15 @@
 import React from 'react';
 import {
   GestureResponderEvent,
-  Pressable,
   StyleSheet,
   Text,
   TextStyle,
+  TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native';
+
+import {colors, defaultButtonStyle, getSimpleShadowStyle} from '../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,19 +20,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   } as ViewStyle,
   button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#44b987',
     width: 60,
     height: 60,
     borderRadius: 60,
-    shadowColor: 'black',
-    shadowOffset: {height: 0, width: 0},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    ...defaultButtonStyle,
+    ...getSimpleShadowStyle(4),
   } as ViewStyle,
-  label: {color: 'white', fontSize: 40, fontWeight: 'bold'} as TextStyle,
+  icon: {
+    color: colors.plusButtonIcon,
+    fontSize: 40,
+    fontWeight: 'bold',
+  } as TextStyle,
 });
 
 export interface PlusButtonProps {
@@ -40,9 +40,12 @@ export interface PlusButtonProps {
 
 const PlusButton: React.FC<PlusButtonProps> = ({disabled, onPress}) => (
   <View style={styles.container}>
-    <Pressable style={styles.button} disabled={disabled} onPress={onPress}>
-      <Text style={styles.label}>＋</Text>
-    </Pressable>
+    <TouchableOpacity
+      style={styles.button}
+      disabled={disabled}
+      onPress={onPress}>
+      <Text style={styles.icon}>＋</Text>
+    </TouchableOpacity>
   </View>
 );
 

@@ -1,17 +1,25 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TextStyle} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useQuery} from '@apollo/client';
 
 import Container from '../components/Container';
 import {GET_MEASUREMENTS} from '../graphql/queries';
+import {colors, defaultTextStyle} from '../theme';
 import Header from '../components/Header';
 import MeasurementList from '../components/MeasurementList';
 import {MeasurementType} from '../types';
 import PlusButton from '../components/PlusButton';
 
 const styles = StyleSheet.create({
-  status: {fontSize: 16, padding: 16} as TextStyle,
+  loading: {flex: 1} as ViewStyle,
+  error: {...defaultTextStyle, color: colors.error} as TextStyle,
 });
 
 interface ListScreenProps {
@@ -21,14 +29,23 @@ interface ListScreenProps {
 const ListScreen: React.FC<ListScreenProps> = ({navigation}) => {
   const {loading, error, data} = useQuery(GET_MEASUREMENTS);
 
-  let content, usedDates: Array<number>;
-  if (loading) content = <Text style={styles.status}>Loading...</Text>;
-  else if (error) content = <Text style={styles.status}>{error}</Text>;
-  else if (data) {
-    content = <MeasurementList list={data.measurements} />;
-    usedDates = data.measurements.map(
-      (measurement: MeasurementType) => measurement.measuredAt,
+  let content, usedDates: number[];
+  if (loading) {
+    content = (
+      <ActivityIndicator
+        color={colors.buttonBackground}
+        size="large"
+        style={styles.loading}
+      />
     );
+  } else if (error) {
+    content = <Text style={styles.error}>{error}</Text>;
+  } else if (data) {
+    const sortedItems: MeasurementType[] = [...data.measurements].sort(
+      (a, b) => b.measuredAt - a.measuredAt,
+    );
+    content = <MeasurementList list={sortedItems} />;
+    usedDates = sortedItems.map((item: MeasurementType) => item.measuredAt);
   }
 
   const buttonCallback = () => {
