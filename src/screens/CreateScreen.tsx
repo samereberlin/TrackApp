@@ -1,5 +1,6 @@
 import React from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {RouteProp} from '@react-navigation/native';
 import {StyleSheet, Text, TextStyle} from 'react-native';
 
 import Container from '../components/Container';
@@ -11,10 +12,15 @@ const styles = StyleSheet.create({
 
 export interface CreateScreenProps {
   navigation: StackNavigationProp<any>;
+  route: RouteProp<any, any>;
 }
 
-const CreateScreen: React.FC<CreateScreenProps> = ({navigation}) => {
+const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   const buttonCallback = () => navigation.goBack();
+
+  // TODO: check usedDates for the new measurement date validation.
+  console.log('usedDates:', route?.params?.usedDates);
+
   return (
     <Container>
       <Header label="Create Measurement" buttonCallback={buttonCallback} />

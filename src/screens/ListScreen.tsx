@@ -7,6 +7,8 @@ import Container from '../components/Container';
 import {GET_MEASUREMENTS} from '../graphql/queries';
 import Header from '../components/Header';
 import MeasurementList from '../components/MeasurementList';
+import {MeasurementType} from '../types';
+import PlusButton from '../components/PlusButton';
 
 const styles = StyleSheet.create({
   status: {fontSize: 16, padding: 16} as TextStyle,
@@ -18,18 +20,27 @@ interface ListScreenProps {
 
 const ListScreen: React.FC<ListScreenProps> = ({navigation}) => {
   const {loading, error, data} = useQuery(GET_MEASUREMENTS);
-  let content;
+
+  let content, usedDates: Array<number>;
   if (loading) content = <Text style={styles.status}>Loading...</Text>;
   else if (error) content = <Text style={styles.status}>{error}</Text>;
-  else if (data) content = <MeasurementList list={data.measurements} />;
+  else if (data) {
+    content = <MeasurementList list={data.measurements} />;
+    usedDates = data.measurements.map(
+      (measurement: MeasurementType) => measurement.measuredAt,
+    );
+  }
+
+  const buttonCallback = () => {
+    navigation.navigate('Create Measurement', {usedDates});
+  };
+  const buttonDisabled = loading || error !== undefined;
+
   return (
     <Container>
       <Header label="Measurements" />
       {content}
-      <Button
-        title="Go to CreateScreen ->"
-        onPress={() => navigation.navigate('Create Measurement')}
-      />
+      <PlusButton disabled={buttonDisabled} onPress={buttonCallback} />
     </Container>
   );
 };
