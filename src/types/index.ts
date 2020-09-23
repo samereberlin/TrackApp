@@ -25,5 +25,5 @@ export type MeasurementType = {
 
 export type RootStackParamList = {
   ListScreen: undefined;
-  CreateScreen: {usedDates?: number[]};
+  CreateScreen: {usedDates: number[]};
 };

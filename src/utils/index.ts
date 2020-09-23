@@ -57,7 +57,7 @@ export const formatDateString = (milliseconds: number): string => {
 
 export const formatWeightForm = (text: string): string => {
   let rawWeight = text
-    .replace(/\,/g, '.')
+    .replace(/,/g, '.')
     .replace(/^\./, '')
     .replace(/-|\s/g, '');
 
@@ -72,4 +72,24 @@ export const formatWeightForm = (text: string): string => {
   }
 
   return rawWeight;
+};
+
+export const isDateFormAvailable = (
+  dateForm: string,
+  usedDates: number[],
+): boolean => {
+  const [month, day, year] = dateForm.split('/');
+  const targetDay = parseInt(day, 10);
+  const targetMonth = parseInt(month, 10) - 1;
+  const targetYear = parseInt(year, 10) + 2000;
+  return usedDates.find((timestamp) => {
+    const date = new Date(timestamp);
+    return (
+      date.getDate() === targetDay &&
+      date.getMonth() === targetMonth &&
+      date.getFullYear() === targetYear
+    );
+  })
+    ? false
+    : true;
 };

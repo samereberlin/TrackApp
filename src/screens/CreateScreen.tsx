@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteProp} from '@react-navigation/native';
-import {Alert, StyleSheet, Text, View, ViewStyle} from 'react-native';
+import {Alert, StyleSheet, View, ViewStyle} from 'react-native';
 
 import Container from '../components/Container';
-import {formatDateForm, formatWeightForm} from '../utils';
+import {formatDateForm, formatWeightForm, isDateFormAvailable} from '../utils';
 import FormGroup from '../components/FormGroup';
 import Header from '../components/Header';
 import {RootStackParamList} from '../types';
@@ -21,7 +21,6 @@ export interface CreateScreenProps {
 const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   const [date, setDate] = useState('');
   const [weight, setWeight] = useState('');
-  const usedDates = route.params;
 
   const headerButtonCB = () => navigation.goBack();
 
@@ -29,8 +28,18 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
     try {
       const dateForm = formatDateForm(text);
       setDate(dateForm);
-      // TODO: check usedDates for the new measurement date validation.
-      console.log('usedDates:', usedDates);
+      if (
+        dateForm.length === 8 &&
+        route.params.usedDates.length &&
+        !isDateFormAvailable(dateForm, route.params.usedDates)
+      ) {
+        Alert.alert(
+          'Date already used',
+          `You have already created a measurement on ${dateForm}, please insert another date.`,
+          [{text: 'OK', onPress: () => setDate('')}],
+          {cancelable: false},
+        );
+      }
     } catch (error) {
       setDate(text);
       Alert.alert(
