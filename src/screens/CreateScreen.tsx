@@ -5,6 +5,7 @@ import {StyleSheet, Text, TextStyle} from 'react-native';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
+import {RootStackParamList} from '../types';
 
 const styles = StyleSheet.create({
   text: {fontSize: 16, padding: 16} as TextStyle,
@@ -12,14 +13,15 @@ const styles = StyleSheet.create({
 
 export interface CreateScreenProps {
   navigation: StackNavigationProp<any>;
-  route: RouteProp<any, any>;
+  route: RouteProp<RootStackParamList, 'CreateScreen'>;
 }
 
 const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   const buttonCallback = () => navigation.goBack();
+  const usedDates = route.params;
 
   // TODO: check usedDates for the new measurement date validation.
-  console.log('usedDates:', route?.params?.usedDates);
+  console.log('usedDates:', usedDates);
 
   return (
     <Container>

@@ -6,3 +6,8 @@ export type MeasurementType = {
   createdAt: number;
   __typename: string;
 };
+
+export type RootStackParamList = {
+  ListScreen: undefined;
+  CreateScreen: {usedDates?: Array<number>};
+};
