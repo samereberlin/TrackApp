@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Alert,
   Image,
   ImageStyle,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 
 import {colors} from '../theme';
 
@@ -46,11 +48,21 @@ const styles = StyleSheet.create({
   } as TextStyle,
 });
 
-const PicturePicker: React.FC = () => {
+export interface PicturePickerProps {
+  onPicked: Function;
+}
+
+const PicturePicker: React.FC<PicturePickerProps> = ({onPicked}) => {
   const onPress = () => {
-    // TODO: launch image picker for picture selection.
-    console.log('PicturePicker pressed.');
+    ImagePicker.showImagePicker((response) => {
+      if (response.error) {
+        Alert.alert('Image error', response.error, [{text: 'OK'}]);
+      } else {
+        onPicked(response);
+      }
+    });
   };
+
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.border} />

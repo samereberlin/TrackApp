@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RouteProp} from '@react-navigation/native';
 import {Alert, StyleSheet, View, ViewStyle} from 'react-native';
+import {RouteProp} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {ImagePickerResponse} from 'react-native-image-picker';
 
 import Container from '../components/Container';
 import {formatDateForm, formatWeightForm, isDateFormAvailable} from '../utils';
 import FormGroup from '../components/FormGroup';
 import Header from '../components/Header';
 import PicturePicker from '../components/PicturePicker';
+import PictureViewer from '../components/PictureViewer';
 import {RootStackParamList} from '../types';
 
 const styles = StyleSheet.create({
@@ -22,6 +24,9 @@ export interface CreateScreenProps {
 const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   const [date, setDate] = useState('');
   const [weight, setWeight] = useState('');
+  const [pictureInfo, setPictureInfo] = useState<
+    ImagePickerResponse | undefined
+  >();
 
   const headerButtonCB = () => navigation.goBack();
 
@@ -67,6 +72,14 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
     }
   };
 
+  const picturePickerCB = (response: ImagePickerResponse) => {
+    setPictureInfo(response);
+  };
+
+  const pictureViewerCB = () => {
+    setPictureInfo(undefined);
+  };
+
   return (
     <Container>
       <Header label="Create Measurement" buttonCallback={headerButtonCB} />
@@ -88,7 +101,14 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
           placeholder="Your weight, kg"
           value={weight}
         />
-        <PicturePicker />
+        {pictureInfo ? (
+          <PictureViewer
+            onDeleted={pictureViewerCB}
+            pictureInfo={pictureInfo}
+          />
+        ) : (
+          <PicturePicker onPicked={picturePickerCB} />
+        )}
       </View>
     </Container>
   );
