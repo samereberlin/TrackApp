@@ -39,7 +39,9 @@ export interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({label, buttonCallback}) => (
   <View style={styles.container}>
-    <Text style={styles.label}>{label}</Text>
+    <Text numberOfLines={1} style={styles.label}>
+      {label}
+    </Text>
     {buttonCallback && (
       <TouchableOpacity
         style={styles.backButton}

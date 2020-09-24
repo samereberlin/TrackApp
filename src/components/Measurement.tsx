@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 4,
   } as ViewStyle,
-  innerContainer: {flex: 4} as ViewStyle,
+  innerContainer: {flex: 1} as ViewStyle,
   date: {
     color: colors.measurementDate,
     fontSize: defaultTextSize,
     padding: 4,
   } as TextStyle,
-  image: {flex: 1} as ImageStyle,
+  image: {width: 55, height: 55} as ImageStyle,
   weight: {
     color: colors.measurementWeight,
     fontSize: defaultTextSize,
@@ -43,16 +43,14 @@ export interface MeasurementProps {
 const Measurement: React.FC<MeasurementProps> = ({measurement}) => (
   <View style={styles.outerContainer}>
     <View style={styles.innerContainer}>
-      <Text style={styles.date}>
+      <Text numberOfLines={1} style={styles.date}>
         {formatDateString(measurement.measuredAt)}
       </Text>
-      <Text style={styles.weight}>{measurement.weight}kg</Text>
+      <Text numberOfLines={1} style={styles.weight}>
+        {measurement.weight}kg
+      </Text>
     </View>
-    <Image
-      resizeMode="contain"
-      style={styles.image}
-      source={{uri: measurement.photoPublicPath}}
-    />
+    <Image style={styles.image} source={{uri: measurement.photoPublicPath}} />
   </View>
 );
 

@@ -61,11 +61,7 @@ const PictureViewer: React.FC<PictureViewerProps> = ({
   pictureInfo,
 }) => (
   <View style={styles.container}>
-    <Image
-      resizeMode="cover"
-      source={{uri: pictureInfo?.uri}}
-      style={styles.image}
-    />
+    <Image source={{uri: pictureInfo?.uri}} style={styles.image} />
     <View style={styles.textContainer}>
       <Text numberOfLines={1} style={styles.name}>
         {pictureInfo?.fileName || getNameFromUri(pictureInfo?.uri)}
