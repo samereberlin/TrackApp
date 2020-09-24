@@ -19,6 +19,7 @@ export const colors: ColorsType = {
   measurementWeight: '#adc1c5',
   plusButtonIcon: 'white',
   picturePicker: DEFAULT_GREEN_COLOR,
+  picturePickerLoadingBackground: '#ffffffcc',
   pictureViewerIcon: '#d67272',
   pictureViewerName: DEFAULT_TEXT_COLOR,
   pictureViewerSize: '#b1c4c7',

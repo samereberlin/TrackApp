@@ -12,6 +12,7 @@ export type ColorsType = {
   measurementWeight: string;
   plusButtonIcon: string;
   picturePicker: string;
+  picturePickerLoadingBackground: string;
   pictureViewerIcon: string;
   pictureViewerName: string;
   pictureViewerSize: string;

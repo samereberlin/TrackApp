@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
+  ActivityIndicator,
   Alert,
   Image,
   ImageStyle,
@@ -39,6 +40,10 @@ const styles = StyleSheet.create({
     color: colors.picturePicker,
     fontSize: 20,
   } as TextStyle,
+  loading: {
+    backgroundColor: colors.picturePickerLoadingBackground,
+    flex: 1,
+  } as ViewStyle,
 });
 
 export interface PicturePickerProps {
@@ -46,25 +51,40 @@ export interface PicturePickerProps {
 }
 
 const PicturePicker: React.FC<PicturePickerProps> = ({onPicked}) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const onPress = () => {
-    ImagePicker.showImagePicker((response) => {
+    setIsLoading(true);
+    ImagePicker.launchImageLibrary({}, (response) => {
+      setIsLoading(false);
       if (response.error) {
         Alert.alert('Image error', response.error, [{text: 'OK'}]);
-      } else {
+      } else if (!response.didCancel) {
         onPicked(response);
       }
     });
   };
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <View style={styles.border} />
+    <TouchableOpacity
+      disabled={isLoading}
+      onPress={onPress}
+      style={styles.container}>
       <Text style={styles.label}>Upload picture</Text>
       <Image
         resizeMode="contain"
         style={styles.icon}
         source={require('../images/upload.png')}
       />
+      <View style={styles.border}>
+        {isLoading && (
+          <ActivityIndicator
+            color={colors.picturePicker}
+            size="large"
+            style={styles.loading}
+          />
+        )}
+      </View>
     </TouchableOpacity>
   );
 };
