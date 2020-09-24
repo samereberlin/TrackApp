@@ -12,18 +12,11 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
-import {colors} from '../theme';
+import {colors, defaultFormPictureContainer} from '../theme';
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 8,
-    height: 100,
-    marginLeft: 16,
-    marginRight: 16,
-    marginTop: 32,
+    ...defaultFormPictureContainer,
     overflow: 'hidden',
   } as ViewStyle,
   border: {

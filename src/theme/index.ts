@@ -9,7 +9,6 @@ export const colors: ColorsType = {
   buttonBackground: DEFAULT_GREEN_COLOR,
   containerBackground: '#f5f7f7',
   error: 'red',
-  formBorder: '#d5dee0',
   formLabel: DEFAULT_TEXT_COLOR,
   header: '#f8fafa',
   headerBorder: '#f1f1f1',
@@ -20,12 +19,32 @@ export const colors: ColorsType = {
   measurementWeight: '#adc1c5',
   plusButtonIcon: 'white',
   picturePicker: DEFAULT_GREEN_COLOR,
+  pictureViewerIcon: '#d67272',
+  pictureViewerName: DEFAULT_TEXT_COLOR,
+  pictureViewerSize: '#b1c4c7',
 };
 
 export const defaultButtonStyle: ViewStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: colors.buttonBackground,
+};
+
+export const defaultFormBorder: ViewStyle = {
+  borderColor: '#d5dee0',
+  borderRadius: 8,
+  borderWidth: 2,
+};
+
+export const defaultFormPictureContainer: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 8,
+  height: 100,
+  marginLeft: 16,
+  marginRight: 16,
+  marginTop: 32,
 };
 
 export const defaultTextSize: number = 16;

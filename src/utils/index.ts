@@ -8,7 +8,7 @@ const days = [
   'Saturday',
 ];
 
-var months = [
+const months = [
   'January',
   'February',
   'March',
@@ -22,6 +22,8 @@ var months = [
   'November',
   'December',
 ];
+
+const fileSizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 
 export const formatDateForm = (text: string): string => {
   const rawDate = text
@@ -72,6 +74,23 @@ export const formatWeightForm = (text: string): string => {
   }
 
   return rawWeight;
+};
+
+export const getFileSizeString = (bytes: number | undefined): string => {
+  if (bytes === undefined) {
+    return 'Unknown file size';
+  }
+  if (bytes < 2) {
+    return `${bytes} Byte`;
+  }
+  const k = 1024;
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${fileSizes[i]}`;
+};
+
+export const getNameFromUri = (uri: string | undefined): string => {
+  const name = uri?.split('/').pop();
+  return name || 'Unknown file name';
 };
 
 export const isDateFormAvailable = (
