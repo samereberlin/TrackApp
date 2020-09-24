@@ -11,7 +11,7 @@ import {useQuery} from '@apollo/client';
 
 import Container from '../components/Container';
 import {GET_MEASUREMENTS} from '../graphql/queries';
-import {colors, defaultTextStyle} from '../theme';
+import {colors, defaultTextStyle} from '../utils/theme';
 import Header from '../components/Header';
 import MeasurementList from '../components/MeasurementList';
 import {MeasurementType} from '../types';

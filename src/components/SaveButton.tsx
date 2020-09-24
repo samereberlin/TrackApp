@@ -9,44 +9,44 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {colors, defaultButtonStyle, getSimpleShadowStyle} from '../utils/theme';
+import {
+  colors,
+  defaultButtonStyle,
+  defaultTextStyle,
+  getSimpleShadowStyle,
+} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    bottom: 32,
-    left: 0,
-    right: 0,
     alignItems: 'center',
+    padding: 16,
   } as ViewStyle,
   button: {
     ...defaultButtonStyle,
-    ...getSimpleShadowStyle(4),
-    width: 60,
-    height: 60,
-    borderRadius: 60,
+    ...getSimpleShadowStyle(3),
+    borderRadius: 4,
   } as ViewStyle,
-  icon: {
+  label: {
+    ...defaultTextStyle,
     color: colors.buttonLabel,
-    fontSize: 40,
     fontWeight: 'bold',
   } as TextStyle,
 });
 
-export interface PlusButtonProps {
+export interface SaveButtonProps {
   disabled: boolean;
   onPress: (event: GestureResponderEvent) => void;
 }
 
-const PlusButton: React.FC<PlusButtonProps> = ({disabled, onPress}) => (
+const SaveButton: React.FC<SaveButtonProps> = ({disabled, onPress}) => (
   <View style={styles.container}>
     <TouchableOpacity
-      style={styles.button}
       disabled={disabled}
+      style={styles.button}
       onPress={onPress}>
-      <Text style={styles.icon}>＋</Text>
+      <Text style={styles.label}>Save measurement</Text>
     </TouchableOpacity>
   </View>
 );
 
-export default PlusButton;
+export default SaveButton;

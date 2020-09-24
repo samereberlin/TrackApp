@@ -11,13 +11,13 @@ import {
 } from 'react-native';
 import {ImagePickerResponse} from 'react-native-image-picker';
 
-import {getFileSizeString, getNameFromUri} from '../utils';
+import {getFileSizeString, getNameFromUri} from '../utils/helpers';
 import {
   colors,
   defaultFormBorder,
   defaultFormPictureContainer,
   defaultTextSize,
-} from '../theme';
+} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -52,11 +52,13 @@ const styles = StyleSheet.create({
 });
 
 export interface PictureViewerProps {
+  disabled: boolean;
   onDeleted: Function;
   pictureInfo: ImagePickerResponse | undefined;
 }
 
 const PictureViewer: React.FC<PictureViewerProps> = ({
+  disabled,
   onDeleted,
   pictureInfo,
 }) => (
@@ -70,7 +72,10 @@ const PictureViewer: React.FC<PictureViewerProps> = ({
         {getFileSizeString(pictureInfo?.fileSize)}
       </Text>
     </View>
-    <TouchableOpacity style={styles.deleteButton} onPress={() => onDeleted()}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={styles.deleteButton}
+      onPress={() => onDeleted()}>
       <Text style={styles.deleteIcon}>×</Text>
     </TouchableOpacity>
   </View>

@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
-import {colors, defaultFormPictureContainer} from '../theme';
+import {colors, defaultFormPictureContainer} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -40,17 +40,18 @@ const styles = StyleSheet.create({
     color: colors.picturePicker,
     fontSize: 20,
   } as TextStyle,
-  loading: {
-    backgroundColor: colors.picturePickerLoadingBackground,
+  loadingIndicator: {
+    backgroundColor: colors.overlayProcessing,
     flex: 1,
   } as ViewStyle,
 });
 
 export interface PicturePickerProps {
+  disabled: boolean;
   onPicked: Function;
 }
 
-const PicturePicker: React.FC<PicturePickerProps> = ({onPicked}) => {
+const PicturePicker: React.FC<PicturePickerProps> = ({disabled, onPicked}) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onPress = () => {
@@ -67,7 +68,7 @@ const PicturePicker: React.FC<PicturePickerProps> = ({onPicked}) => {
 
   return (
     <TouchableOpacity
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       onPress={onPress}
       style={styles.container}>
       <Text style={styles.label}>Upload picture</Text>
@@ -81,7 +82,7 @@ const PicturePicker: React.FC<PicturePickerProps> = ({onPicked}) => {
           <ActivityIndicator
             color={colors.picturePicker}
             size="large"
-            style={styles.loading}
+            style={styles.loadingIndicator}
           />
         )}
       </View>

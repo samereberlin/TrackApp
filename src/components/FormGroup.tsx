@@ -9,7 +9,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {colors, defaultFormBorder, defaultTextSize} from '../theme';
+import {colors, defaultFormBorder, defaultTextSize} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {padding: 8} as ViewStyle,

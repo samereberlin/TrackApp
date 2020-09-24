@@ -9,8 +9,8 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {formatDateString} from '../utils';
-import {colors, defaultTextSize, getSimpleShadowStyle} from '../theme';
+import {formatDateString} from '../utils/helpers';
+import {colors, defaultTextSize, getSimpleShadowStyle} from '../utils/theme';
 import {MeasurementType} from '../types';
 
 const styles = StyleSheet.create({

@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, TextStyle, ViewStyle} from 'react-native';
 
-import {defaultTextStyle} from '../theme';
+import {defaultTextStyle} from '../utils/theme';
 import Measurement from '../components/Measurement';
 import {MeasurementType} from '../types';
 

@@ -8,13 +8,13 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {colors} from '../theme';
+import {colors} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'stretch',
-    backgroundColor: colors.header,
+    backgroundColor: colors.headerBackground,
     borderBottomColor: colors.headerBorder,
     borderBottomWidth: 2,
   } as ViewStyle,

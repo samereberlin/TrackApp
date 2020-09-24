@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, SafeAreaView, ViewStyle} from 'react-native';
 
-import {colors} from '../theme';
+import {colors} from '../utils/theme';
 
 const styles = StyleSheet.create({
   container: {

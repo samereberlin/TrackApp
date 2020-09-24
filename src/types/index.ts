@@ -1,18 +1,20 @@
+import {ImagePickerResponse} from 'react-native-image-picker';
+
 export type ColorsType = {
   buttonBackground: string;
+  buttonLabel: string;
   containerBackground: string;
   error: string;
   formLabel: string;
-  header: string;
+  headerBackground: string;
   headerBorder: string;
   headerIcon: string;
   headerLabel: string;
   measurementBackground: string;
   measurementDate: string;
   measurementWeight: string;
-  plusButtonIcon: string;
+  overlayProcessing: string;
   picturePicker: string;
-  picturePickerLoadingBackground: string;
   pictureViewerIcon: string;
   pictureViewerName: string;
   pictureViewerSize: string;
@@ -30,4 +32,9 @@ export type MeasurementType = {
 export type RootStackParamList = {
   ListScreen: undefined;
   CreateScreen: {usedDates: number[]};
+};
+
+export type SaveServiceParamsType = {
+  pictureInfo: ImagePickerResponse | undefined;
+  // TODO: add mutation reference here.
 };

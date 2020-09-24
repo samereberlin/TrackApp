@@ -2,24 +2,24 @@ import {Platform, TextStyle, ViewStyle} from 'react-native';
 
 import {ColorsType} from '../types';
 
-const DEFAULT_TEXT_COLOR = '#333333';
 const DEFAULT_GREEN_COLOR = '#44b987';
+const DEFAULT_TEXT_COLOR = '#333333';
 
 export const colors: ColorsType = {
   buttonBackground: DEFAULT_GREEN_COLOR,
+  buttonLabel: 'white',
   containerBackground: '#f5f7f7',
   error: 'red',
   formLabel: DEFAULT_TEXT_COLOR,
-  header: '#f8fafa',
+  headerBackground: '#f8fafa',
   headerBorder: '#f1f1f1',
   headerIcon: '#aabbbf',
   headerLabel: DEFAULT_TEXT_COLOR,
   measurementBackground: 'white',
   measurementDate: DEFAULT_TEXT_COLOR,
   measurementWeight: '#adc1c5',
-  plusButtonIcon: 'white',
+  overlayProcessing: '#ffffffa0',
   picturePicker: DEFAULT_GREEN_COLOR,
-  picturePickerLoadingBackground: '#ffffffcc',
   pictureViewerIcon: '#d67272',
   pictureViewerName: DEFAULT_TEXT_COLOR,
   pictureViewerSize: '#b1c4c7',
