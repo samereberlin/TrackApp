@@ -1,0 +1,2 @@
+// ESLint ignores files listed here + .gitignore
+*.config.js
