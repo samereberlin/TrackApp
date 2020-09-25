@@ -3,7 +3,7 @@ Fitness tracking application implemented before joining Lenus eHealth :-)
 
 The following video presents the basic functionalities in action (list measurements, create measurements, data validation, and image upload).
 
-<video.mp4>
+![](TrackApp.mp4)
 
 ## Instructions to run:
 
