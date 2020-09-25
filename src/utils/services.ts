@@ -34,7 +34,7 @@ export const saveService = ({
         headers: {
           'Content-Type': pictureInfo.type || '',
         },
-      }).catch(error => {
+      }).catch((error) => {
         console.error('Error uploading image:', error);
       });
     }

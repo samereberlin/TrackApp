@@ -110,7 +110,7 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
     };
     saveService(saveServiceParams)
       .then(() => navigation.goBack())
-      .catch(error => {
+      .catch((error) => {
         setIsSaving(false);
         Alert.alert('Error while saving:', error, [{text: 'OK'}]);
       });
