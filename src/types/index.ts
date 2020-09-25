@@ -35,6 +35,9 @@ export type RootStackParamList = {
 };
 
 export type SaveServiceParamsType = {
+  measurementMutation: Function;
+  uploadPhotoMutation: Function;
   pictureInfo: ImagePickerResponse | undefined;
-  // TODO: add mutation reference here.
+  weightString: string;
+  dateString: string;
 };

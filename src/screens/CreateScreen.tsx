@@ -7,25 +7,27 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {ImagePickerResponse} from 'react-native-image-picker';
 import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {ImagePickerResponse} from 'react-native-image-picker';
+import {useMutation} from '@apollo/client';
 
-import {colors} from '../utils/theme';
 import {
-  checkFormData,
+  checkFormDate,
   checkUsedDates,
   formatDateForm,
   formatWeightForm,
 } from '../utils/helpers';
+import {colors} from '../utils/theme';
 import Container from '../components/Container';
-import {saveService} from '../utils/services';
 import FormGroup from '../components/FormGroup';
 import Header from '../components/Header';
 import PicturePicker from '../components/PicturePicker';
 import PictureViewer from '../components/PictureViewer';
 import {RootStackParamList, SaveServiceParamsType} from '../types';
 import SaveButton from '../components/SaveButton';
+import {saveService} from '../utils/services';
+import {CREATE_MEASUREMENT, UPLOAD_PHOTO} from '../graphql/mutations';
 
 const styles = StyleSheet.create({
   emptySpace: {flex: 1} as ViewStyle,
@@ -52,6 +54,11 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   const [pictureInfo, setPictureInfo] = useState<
     ImagePickerResponse | undefined
   >();
+
+  const [measurementMutation] = useMutation(CREATE_MEASUREMENT, {
+    refetchQueries: ['GetMeasurements'],
+  });
+  const [uploadPhotoMutation] = useMutation(UPLOAD_PHOTO);
 
   const onChangeDate = (text: string) => {
     try {
@@ -88,22 +95,25 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
 
   const saveButtonCB = () => {
     try {
-      checkFormData(date, weight);
+      checkFormDate(date, weight);
     } catch (error) {
       Alert.alert('Invalid form data:', error.message, [{text: 'OK'}]);
       return;
     }
     setIsSaving(true);
     const saveServiceParams: SaveServiceParamsType = {
+      measurementMutation,
+      uploadPhotoMutation,
       pictureInfo,
-      // TODO: add mutation reference here.
+      weightString: weight,
+      dateString: date,
     };
     saveService(saveServiceParams)
       .then(() => navigation.goBack())
-      .catch((error) => {
+      .catch(error => {
+        setIsSaving(false);
         Alert.alert('Error while saving:', error, [{text: 'OK'}]);
-      })
-      .finally(() => setIsSaving(false));
+      });
   };
 
   return (

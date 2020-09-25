@@ -25,7 +25,7 @@ const months = [
 
 const fileSizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 
-export const checkFormData = (dateForm: string, weight: string) => {
+export const checkFormDate = (dateForm: string, weight: string) => {
   if (dateForm.length && dateForm.length < 8) {
     throw new Error(
       `${dateForm} is an invalid date, please adjust it according to the form instructions before saving.`,
@@ -88,6 +88,11 @@ export const formatDateForm = (date: string): string => {
 export const formatDateString = (milliseconds: number): string => {
   const d = new Date(milliseconds);
   return `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
+};
+
+export const formatDateTimestamp = (dateString: string): number => {
+  const d = dateString.split('/');
+  return new Date(`20${d[2]}/${d[0]}/${d[1]}`).getTime();
 };
 
 export const formatWeightForm = (weight: string): string => {

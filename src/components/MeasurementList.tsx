@@ -1,13 +1,21 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, TextStyle, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 
 import {defaultTextStyle} from '../utils/theme';
 import Measurement from '../components/Measurement';
 import {MeasurementType} from '../types';
 
 const styles = StyleSheet.create({
-  container: {padding: 8} as ViewStyle,
+  container: {paddingLeft: 8} as ViewStyle,
   empty: {...defaultTextStyle} as TextStyle,
+  footer: {height: 64} as ViewStyle,
 });
 
 export interface MeasurementListProps {
@@ -20,6 +28,7 @@ const MeasurementList: React.FC<MeasurementListProps> = ({list}) => (
     keyExtractor={({id}) => id}
     renderItem={({item}) => <Measurement measurement={item} />}
     ListEmptyComponent={<Text style={styles.empty}>Empty list.</Text>}
+    ListFooterComponent={<View style={styles.footer} />}
     style={styles.container}
   />
 );
