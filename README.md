@@ -1,5 +1,5 @@
 # TrackApp
-Fitness tracking application implemented before joining Lenus eHealth :-)
+This is a fitness tracking app implemented for didactic reasons.
 
 The following video presents the basic functionalities in action (list measurements, create measurements, data validation, and image upload).
 
@@ -55,5 +55,3 @@ The application still needs a lot of adjustments to reach the production level, 
 - Show a pop-up confirmation while trying to close the "Create measurement" screen without saving.
 
 - Write unit-tests and end-to-end tests, since I haven't had enough time for that as well ;-(
-
-- Fix eslint and tsc script executions, since they are not working anymore after the react-native downgrade (from 0.63.2 to 0.62.2). The reason is probably some dependency conflict, but it requires a deeper investigation since the error messages are not clear.
