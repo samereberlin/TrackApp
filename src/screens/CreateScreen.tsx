@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   Alert,
+  BackHandler,
   ScrollView,
   StyleSheet,
   View,
@@ -60,6 +61,18 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   });
   const [uploadPhotoMutation] = useMutation(UPLOAD_PHOTO);
 
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        onCloseCB();
+        return true;
+      },
+    );
+    return () => backHandler.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date, weight, pictureInfo]);
+
   const onChangeDate = (text: string) => {
     try {
       const dateForm = formatDateForm(text);
@@ -93,6 +106,18 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
     }
   };
 
+  const onCloseCB = () => {
+    if (date || weight || pictureInfo) {
+      Alert.alert(
+        'Confirm close:',
+        'Are you sure you want to discard this measurement?',
+        [{text: 'OK', onPress: () => navigation.goBack()}, {text: 'Cancel'}],
+      );
+    } else {
+      navigation.goBack();
+    }
+  };
+
   const saveButtonCB = () => {
     try {
       checkFormDate(date, weight);
@@ -118,10 +143,7 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
 
   return (
     <Container>
-      <Header
-        label="Create Measurement"
-        buttonCallback={() => navigation.goBack()}
-      />
+      <Header label="Create Measurement" buttonCallback={onCloseCB} />
       <ScrollView contentContainerStyle={styles.formContainer}>
         <FormGroup
           autoFocus={true}
