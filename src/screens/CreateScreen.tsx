@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -61,6 +61,18 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
   });
   const [uploadPhotoMutation] = useMutation(UPLOAD_PHOTO);
 
+  const onCloseCB = useCallback(() => {
+    if (date || weight || pictureInfo) {
+      Alert.alert(
+        'Confirm close:',
+        'Are you sure you want to discard this measurement?',
+        [{text: 'OK', onPress: () => navigation.goBack()}, {text: 'Cancel'}],
+      );
+    } else {
+      navigation.goBack();
+    }
+  }, [date, weight, pictureInfo, navigation]);
+
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
       'hardwareBackPress',
@@ -70,8 +82,7 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
       },
     );
     return () => backHandler.remove();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [date, weight, pictureInfo]);
+  }, [onCloseCB]);
 
   const onChangeDate = (text: string) => {
     try {
@@ -103,18 +114,6 @@ const CreateScreen: React.FC<CreateScreenProps> = ({navigation, route}) => {
         [{text: 'OK', onPress: () => setWeight('')}],
         {cancelable: false},
       );
-    }
-  };
-
-  const onCloseCB = () => {
-    if (date || weight || pictureInfo) {
-      Alert.alert(
-        'Confirm close:',
-        'Are you sure you want to discard this measurement?',
-        [{text: 'OK', onPress: () => navigation.goBack()}, {text: 'Cancel'}],
-      );
-    } else {
-      navigation.goBack();
     }
   };
 
