@@ -52,6 +52,4 @@ The application still needs a lot of adjustments to reach the production level, 
 
 - Add the possibility to edit or delete measurements.
 
-- Show a pop-up confirmation while trying to close the "Create measurement" screen without saving.
-
 - Write unit-tests and end-to-end tests, since I haven't had enough time for that as well ;-(
