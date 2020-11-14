@@ -1,11 +1,14 @@
 # TrackApp
-This is a fitness tracking app implemented for didactic reasons.
+
+TrackApp is a simple React Native (iOS/Android) application to track user's fitness measures.
+
+It was implemented for didactic reasons, therefore it is not yet ready for production (see [Next steps](#next-steps) section below).
 
 The following video presents the basic functionalities in action (list measurements, create measurements, data validation, and image upload).
 
-![TrackApp.mp4](TrackApp.mp4)
+[TrackApp.mp4](TrackApp.mp4)
 
-## Instructions to run:
+## Instructions to run
 
 It is a standard react-native project (created with `npx react-native init...`), so basically:
 
@@ -21,7 +24,7 @@ npm run ios
 npm run android
 ```
 
-## Design decisions:
+## Design decisions
 
 Following the KISS design principle, and considering that it is a simple application (with 2 screens only), I decided to include less dependencies as possible, So...
 
@@ -38,7 +41,7 @@ Following the KISS design principle, and considering that it is a simple applica
 - And last (but not least), I choose to use react-native version 0.62.2 instead of the latest release (v0.63.2), due to the "Missing request token for request" issue (while trying to upload files on iOS) that is being reported since v0.63.0.
 
 
-## TO-DO list (next steps):
+## Next steps
 
 The application still needs a lot of adjustments to reach the production level, and the list below presents the main/urgent needs according to my feeling...
 
