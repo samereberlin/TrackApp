@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header matches the snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "#f8fafa",
+      "borderBottomColor": "#f1f1f1",
+      "borderBottomWidth": 2,
+      "flexDirection": "row",
+    }
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      Object {
+        "color": "#333333",
+        "flex": 1,
+        "fontSize": 20,
+        "padding": 16,
+      }
+    }
+  >
+    foo
+  </Text>
+</View>
+`;

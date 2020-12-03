@@ -1,7 +1,12 @@
 module.exports = {
   root: true,
+  env: {
+    jest: true,
+  },
   extends: [
     '@react-native-community',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
     'plugin:@typescript-eslint/eslint-recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
@@ -11,5 +16,5 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['jest', '@typescript-eslint', 'prettier'],
 };

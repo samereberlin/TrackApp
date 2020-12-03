@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header matches the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#f5f7f7",
+      "flex": 1,
+    }
+  }
+>
+  <Text>
+    foo
+  </Text>
+</RCTSafeAreaView>
+`;
