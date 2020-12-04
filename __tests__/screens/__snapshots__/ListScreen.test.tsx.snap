@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListScreen matches the snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#f5f7f7",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "backgroundColor": "#f8fafa",
+        "borderBottomColor": "#f1f1f1",
+        "borderBottomWidth": 2,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "#333333",
+          "flex": 1,
+          "fontSize": 20,
+          "padding": 16,
+        }
+      }
+    >
+      Measurements
+    </Text>
+  </View>
+  <ActivityIndicator
+    animating={true}
+    color="#44b987"
+    hidesWhenStopped={true}
+    size="large"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    testID="ActivityIndicator"
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 32,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#44b987",
+          "borderRadius": 60,
+          "height": 60,
+          "justifyContent": "center",
+          "opacity": 1,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.4,
+          "shadowRadius": 4,
+          "width": 60,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        ＋
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`ListScreen matches the snapshot 2`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "backgroundColor": "#f5f7f7",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "backgroundColor": "#f8fafa",
+        "borderBottomColor": "#f1f1f1",
+        "borderBottomWidth": 2,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        Object {
+          "color": "#333333",
+          "flex": 1,
+          "fontSize": 20,
+          "padding": 16,
+        }
+      }
+    >
+      Measurements
+    </Text>
+  </View>
+  <RCTScrollView
+    ListEmptyComponent={
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "padding": 16,
+          }
+        }
+      >
+        Empty list.
+      </Text>
+    }
+    ListFooterComponent={
+      <View
+        style={
+          Object {
+            "height": 64,
+          }
+        }
+      />
+    }
+    data={
+      Array [
+        Object {
+          "createdAt": 172800000,
+          "id": "cc",
+          "measuredAt": 172800000,
+          "photoPublicPath": "https://via.placeholder.com/150",
+          "weight": 74,
+        },
+        Object {
+          "createdAt": 86400000,
+          "id": "bb",
+          "measuredAt": 86400000,
+          "photoPublicPath": "https://via.placeholder.com/150",
+          "weight": 75,
+        },
+        Object {
+          "createdAt": 1,
+          "id": "aa",
+          "measuredAt": 1,
+          "photoPublicPath": "https://via.placeholder.com/150",
+          "weight": 76,
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "paddingLeft": 8,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "margin": 8,
+              "padding": 12,
+              "shadowColor": "black",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#333333",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              Saturday 3 January
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#adc1c5",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              74
+              kg
+            </Text>
+          </View>
+          <Image
+            source={
+              Object {
+                "uri": "https://via.placeholder.com/150",
+              }
+            }
+            style={
+              Object {
+                "height": 55,
+                "width": 55,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "margin": 8,
+              "padding": 12,
+              "shadowColor": "black",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#333333",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              Friday 2 January
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#adc1c5",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              75
+              kg
+            </Text>
+          </View>
+          <Image
+            source={
+              Object {
+                "uri": "https://via.placeholder.com/150",
+              }
+            }
+            style={
+              Object {
+                "height": 55,
+                "width": 55,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "margin": 8,
+              "padding": 12,
+              "shadowColor": "black",
+              "shadowOffset": Object {
+                "height": 0,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#333333",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              Thursday 1 January
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#adc1c5",
+                  "fontSize": 16,
+                  "padding": 4,
+                }
+              }
+            >
+              76
+              kg
+            </Text>
+          </View>
+          <Image
+            source={
+              Object {
+                "uri": "https://via.placeholder.com/150",
+              }
+            }
+            style={
+              Object {
+                "height": 55,
+                "width": 55,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Object {
+              "height": 64,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 32,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#44b987",
+          "borderRadius": 60,
+          "height": 60,
+          "justifyContent": "center",
+          "opacity": 1,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.4,
+          "shadowRadius": 4,
+          "width": 60,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 40,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        ＋
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

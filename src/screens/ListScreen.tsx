@@ -36,6 +36,7 @@ const ListScreen: React.FC<ListScreenProps> = ({navigation}) => {
         color={colors.buttonBackground}
         size="large"
         style={styles.loading}
+        testID="ActivityIndicator"
       />
     );
   } else if (error) {
