@@ -55,4 +55,4 @@ The application still needs a lot of adjustments to reach the production level, 
 
 - Add the possibility to edit or delete measurements.
 
-- Write end-to-end tests (suggested framework: Detox) and increase coverage of unit-tests and.
+- Write end-to-end tests (suggested framework: Detox) and increase unit-tests coverage.
