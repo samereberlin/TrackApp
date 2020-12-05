@@ -8,7 +8,9 @@
     "start": "react-native start",
     "lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore --ext .js,.jsx,.ts,.tsx .",
     "typescript": "tsc --noEmit",
-    "test": "jest --coverage"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:updateSnapshot": "jest --updateSnapshot"
   },
   "dependencies": {
     "@apollo/client": "^3.2.0",
